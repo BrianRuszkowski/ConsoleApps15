@@ -1,9 +1,9 @@
 # C# Console Applications App01 to App05
 | Author | Details |
 | ---- | ---- |
-**Name**: | Student Name  |
-**Student ID**: | 12345678 |
-**Course:** | Computing |
+**Name**: | Brian Ruszkowski  |
+**Student ID**: | 21717237 |
+**Course:** | Computing and Web Development |
 **Module**: | CO453     |
 **Started**: | January 2021 |    
 
