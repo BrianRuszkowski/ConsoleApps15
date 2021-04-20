@@ -27,11 +27,11 @@ namespace ConsoleAppProject.App01
 
         public const double MILES_IN_MILES = 1.0;
 
-        public const double MILES_IN_FEET = 0.0;
+        public const double MILES_IN_FEET = 0.000189393939;
 
-        public const double METRES_IN_FEET = 3.28084;
+        public const double METRES_IN_FEET = 0.3048;
 
-        public const double MILES_IN_METRES = 0.0;
+        public const double MILES_IN_METRES = 0.000621371192;
 
         public const string FEET = "Feet";
         public const string METRES = "Metres";
