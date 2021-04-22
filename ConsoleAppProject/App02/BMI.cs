@@ -4,7 +4,7 @@
     /// Please describe the main features of this App
     /// </summary>
     /// <author>
-    /// Student Name version 0.1
+    /// Brian Ruszkowski version 0.1
     /// </author>
     public class BMI
     {
