@@ -55,7 +55,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void ConvertDistance()
         {
-            OutputHeading();
+            ConsoleHelper.OutputHeading("DistanceConverter");
 
             fromUnit = SelectUnit(" Please select the from distance unit > ");
             toUnit = SelectUnit(" Please select the to distance unit > ");
@@ -182,17 +182,6 @@ namespace ConsoleAppProject.App01
         {
             Console.WriteLine($"\n {fromDistance} {fromUnit}" + 
                 $" is {toDistance} {toUnit}!\n");
-        }
-
-        /// <summary>
-        /// This code displays what the app is and the authors name
-        /// </summary>
-        private void OutputHeading()
-        {
-            Console.WriteLine("\n--------------------------------------------");
-            Console.WriteLine("           Distance Converter            ");
-            Console.WriteLine("           By Brian Ruszkowski              ");
-            Console.WriteLine("--------------------------------------------\n");
         }
     }
 }
