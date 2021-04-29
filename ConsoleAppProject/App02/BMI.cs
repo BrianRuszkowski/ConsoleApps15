@@ -7,17 +7,17 @@ namespace ConsoleAppProject.App02
     ///</summary>
     public enum UnitSystems
     {
-        Metric
+        Metric,
         Imperial
     }
 
     /// <summary>
-    /// Please describe the main features of this App
-    /// 
-    /// 
+    /// This class contains methods for calculating
+    /// the user's BMI (Body Mass Index) using
+    /// imperial or metric units
     /// </summary>
     /// <author>
-    /// Brian Ruszkowski version 0.1
+    /// Brian Ruszkowski App02: version 1.0
     /// </author>
     public class BMI
     {
@@ -30,7 +30,7 @@ namespace ConsoleAppProject.App02
         public const double ObeseLevel3 = 40.0;
 
         public const int InchesInFeet = 12;
-        public const int PoundsInStone = 14;
+        public const int PoundsInStones = 14;
 
         private double index;
 
@@ -82,48 +82,17 @@ namespace ConsoleAppProject.App02
         /// 
         /// 
         /// </summary>
-
-
-
-
         private UnitSystems SelectUnits()
         {
+            Console.WriteLine("1. Metric");
+            Console.WriteLine("2. Imperial");
+            int choice = (int)ConsoleHelper.InputNumber("Please Enter your choice",1,2);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            inches += (int)feet * InchesInFeet;
-
-            Console.WriteLine();
-            Console.WriteLine(" Enter your weight in stones and pounds");
-            Console.WriteLine();
-
-            double = InputNumber(" Enter your weight in stones > ");
-            pounds = InputNumber(" Enter your weight in pounds >  ");
-
-            pounds += stones * PoundsInStones;
+            if(choice == 1)
+            {
+                return UnitSystems.Metric;
+            }
+            return UnitSystems.Imperial;
         }
 
         ///<summary>
@@ -132,11 +101,27 @@ namespace ConsoleAppProject.App02
         /// </summary>
         private void InputMetricDetails()
         {
-            metres = InputNumber(
-                " \n Enter your height in metres > ");
+            metres = ConsoleHelper.InputNumber(
+                " \n Enter your height in metres > ", 1, 3);
 
-            kilograms = InputNumber(
+            kilograms = ConsoleHelper.InputNumber(
                 " Enter your weight in kilograms > ");
+        }
+
+        private void InputImperialDetails()
+        {
+            int stones = (int)ConsoleHelper.InputNumber(
+                " Enter your weight in stones > ");
+
+            pounds = (int)ConsoleHelper.InputNumber(
+                " Enter your weight in pounds > ");
+
+            pounds = pounds + stones * PoundsInStones;
+
+            int feet = (int)ConsoleHelper.InputNumber("Please Enter your height in feet");
+
+            inches = (int)ConsoleHelper.InputNumber(
+                " Enter your hight in inches > ",1,12);
         }
 
         /// <summary>
@@ -147,7 +132,7 @@ namespace ConsoleAppProject.App02
         {
             Console.WriteLine();
 
-            if (Index < Underweight)
+            if (index < Underweight)
             {
                 Console.WriteLine($" Your BMI is {index:0.00}, " +
                     $"You are underweight! ");
@@ -177,6 +162,8 @@ namespace ConsoleAppProject.App02
                 Console.WriteLine($" Your BMI is {index:0.00}, " +
                     $"You are obese class III! ");
             }
+            else
+                Console.WriteLine("Something Has Gone Very Wrong!!!");
 
             OutputBameMessage();
         }
@@ -195,12 +182,5 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("\t Adults 27.5 or more are at high risk");
             Console.WriteLine();
         }
-
-        public double InputNumber(string prompt)
-        {
-            Console.Write(prompt);
-            string value = Console.ReadLine();
-            double number = Convert.ToDouble(value);
-
-            return number;
-        }
+    }
+}

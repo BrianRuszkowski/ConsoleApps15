@@ -1,5 +1,5 @@
 ﻿using ConsoleAppProject.App01;
-
+using ConsoleAppProject.App02;
 using System;
 
 namespace ConsoleAppProject
@@ -38,6 +38,10 @@ namespace ConsoleAppProject
             if (choice == "1")
             {
                 converter.ConvertDistance();
+            }
+            else if(choice == "2")
+            {
+                calculator.CalculateIndex();
             }
         }
     }
