@@ -2,9 +2,9 @@
 
 namespace ConsoleAppProject.App02
 {
-    ///<summary>
-    ///
-    ///</summary>
+    /// <summary>
+    /// This method allows the program to calculate metric and imperial measurements
+    /// </summary>
     public enum UnitSystems
     {
         Metric,
@@ -17,7 +17,7 @@ namespace ConsoleAppProject.App02
     /// imperial or metric units
     /// </summary>
     /// <author>
-    /// Brian Ruszkowski App02: version 1.0
+    /// Brian Ruszkowski App02: version 2.0
     /// </author>
     public class BMI
     {
@@ -44,9 +44,9 @@ namespace ConsoleAppProject.App02
         private double pounds;
         private int inches;
 
-        ///<summary>
-        ///
-        /// 
+        /// <summary>
+        /// This method outputs the heading for BMI and calculates the either imperial or 
+        /// metric and outputs the health message
         /// </summary>
         public void CalculateIndex()
         {
@@ -68,19 +68,25 @@ namespace ConsoleAppProject.App02
             OutputHealthMessage();
         }
 
+        /// <summary>
+        /// This method calculates the metric measurements kilograms and metres
+        /// </summary>
         public void CalculateMetricBMI()
         {
             index = kilograms / (metres * metres);
         }
 
+        /// <summary>
+        /// This method calculates the imperial measurements pounds and inches
+        /// </summary>
         public void CalculateImperialBMI()
         {
             index = pounds * 703 / (inches * inches);
         }
 
         /// <summary>
-        /// 
-        /// 
+        /// This method shows the user two choices that he can choose between
+        /// either metric or imperial measurements and choose between one or the other
         /// </summary>
         private UnitSystems SelectUnits()
         {
@@ -95,9 +101,9 @@ namespace ConsoleAppProject.App02
             return UnitSystems.Imperial;
         }
 
-        ///<summary>
-        ///
-        /// 
+        /// <summary>
+        /// This method has the input details for metric details
+        /// this method will output the message for the user to enter his metric details
         /// </summary>
         private void InputMetricDetails()
         {
@@ -108,6 +114,10 @@ namespace ConsoleAppProject.App02
                 " Enter your weight in kilograms > ");
         }
 
+        /// <summary>
+        /// This method has all the measurement details for
+        /// the imperial measurements and the output message for imperial details
+        /// </summary>
         private void InputImperialDetails()
         {
             int stones = (int)ConsoleHelper.InputNumber(
@@ -125,8 +135,8 @@ namespace ConsoleAppProject.App02
         }
 
         /// <summary>
-        /// 
-        /// 
+        /// This method outputs the health message dependant
+        /// on what your weight is 
         /// </summary>
         private void OutputHealthMessage()
         {
@@ -169,8 +179,8 @@ namespace ConsoleAppProject.App02
         }
 
         /// <summary>
-        ///
-        /// 
+        /// This method outputs the bame message at the end when the calculation
+        /// finishes the bame messages shows the user who is at risk
         /// </summary>
         private void OutputBameMessage()
         {
