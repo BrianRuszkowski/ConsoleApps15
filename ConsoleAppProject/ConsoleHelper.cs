@@ -71,7 +71,7 @@ namespace ConsoleAppProject
         public static void OutputHeading(string title)
         {
             Console.WriteLine("\n--------------------------------------------");
-            Console.WriteLine("           {title}         ");
+            Console.WriteLine("            {BMI Calculator}         ");
             Console.WriteLine("           By Brian Ruszkowski              ");
             Console.WriteLine("--------------------------------------------\n");
         }
