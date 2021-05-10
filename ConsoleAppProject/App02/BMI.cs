@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 
 namespace ConsoleAppProject.App02
 {
@@ -92,9 +93,9 @@ namespace ConsoleAppProject.App02
         {
             Console.WriteLine("1. Metric");
             Console.WriteLine("2. Imperial");
-            int choice = (int)ConsoleHelper.InputNumber("Please Enter your choice",1,2);
+            int choice = (int)ConsoleHelper.InputNumber("Please Enter your choice", 1, 2);
 
-            if(choice == 1)
+            if (choice == 1)
             {
                 return UnitSystems.Metric;
             }
@@ -131,7 +132,7 @@ namespace ConsoleAppProject.App02
             int feet = (int)ConsoleHelper.InputNumber("Please Enter your height in feet");
 
             inches = (int)ConsoleHelper.InputNumber(
-                " Enter your hight in inches > ",1,12);
+                " Enter your hight in inches > ", 0, 12);
         }
 
         /// <summary>
