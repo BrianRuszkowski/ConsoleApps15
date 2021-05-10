@@ -93,7 +93,7 @@ namespace ConsoleAppProject.App02
         {
             Console.WriteLine("1. Metric");
             Console.WriteLine("2. Imperial");
-            int choice = (int)ConsoleHelper.InputNumber("Please Enter your choice", 1, 2);
+            int choice = (int)ConsoleHelper.InputNumber("Please Enter your choice > ", 1, 2);
 
             if (choice == 1)
             {
@@ -129,7 +129,7 @@ namespace ConsoleAppProject.App02
 
             pounds = pounds + stones * PoundsInStones;
 
-            int feet = (int)ConsoleHelper.InputNumber("Please Enter your height in feet");
+            int feet = (int)ConsoleHelper.InputNumber("Please Enter your height in feet > ");
 
             inches = (int)ConsoleHelper.InputNumber(
                 " Enter your hight in inches > ", 0, 12);
