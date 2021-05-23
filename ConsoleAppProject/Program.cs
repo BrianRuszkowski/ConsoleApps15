@@ -30,7 +30,7 @@ namespace ConsoleAppProject
 
             Console.WriteLine("1. Distance Converter");
             Console.WriteLine("2. BMI Calculator");
-            Console.WriteLine();
+            Console.WriteLine("3. Student Grades");
 
             Console.Write("Please enter your choice of App > ");
             string choice = Console.ReadLine();
@@ -42,6 +42,10 @@ namespace ConsoleAppProject
             else if(choice == "2")
             {
                 calculator.CalculateIndex();
+            }
+            else if(choice == "3")
+            {
+                throw new NotImplementedException();
             }
         }
     }
