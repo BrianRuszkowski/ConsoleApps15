@@ -6,72 +6,89 @@ namespace ConsoleAppProject
 {
     public static class ConsoleHelper
     {
-        /// <summary>
-        /// This method will display a prompt to the user and
-        /// will return any number as a double.  Any exception
-        /// will generate an error message.
-        /// </summary>
-        public static double InputNumber(string prompt)
+        public static int SelectChoice(string[] choices)
+        {
+            int choiceNo = 0;
+
+            //Display all the choices
+
+            foreach (string choice in choices)
+            {
+                choiceNo++;
+                Console.WriteLine($"|{choiceNo}. {choice}");
+            }
+
+            choiceNo = InputNumberWithin(choiceNo-choiceNo+1, choices.Length);
+
+            return choiceNo;
+        }
+
+
+        public static double InputNumber()
         {
             double number = 0;
-            bool isValid;
+            bool Isvalid = false;
 
             do
             {
-                Console.Write(prompt);
+                Console.Write(">");
                 string value = Console.ReadLine();
 
                 try
                 {
                     number = Convert.ToDouble(value);
-                    isValid = true;
+                    Isvalid = true;
                 }
                 catch (Exception)
                 {
-                    isValid = false;
-                    Console.WriteLine(" INVALID NUMBER!");
+                    Isvalid = false;
+                    Console.WriteLine("Number is INVALID!!!");
                 }
-
-            } while (!isValid);
-
+            }
+            while (!Isvalid);
             return number;
+
         }
 
-
-        /// <summary>
-        /// This method will prompt the user to enter a number
-        /// between the min and max values includice.
-        /// 
-        /// Error messages will be displayed for an invalid number
-        /// or a number outside the min or max values.
-        /// The number returned can be cast as an (int/decimal)
-        /// </summary>
-        public static double InputNumber(string prompt, double min, double max)
+        public static bool InRange(double value, double from, double to)
         {
-            bool isValid;
-            double number;
+            if (value >= from && value <= to)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static int InputNumberWithin(int from, int to)
+        {
+            int number;
+            bool Isvalid;
 
             do
             {
-                number = InputNumber(prompt);
+                double value = InputNumber();
 
-                if (number < min || number > max)
+                number = Convert.ToInt32(value);
+                Isvalid = true;
+
+                if (number < from || number > to)
                 {
-                    isValid = false;
-                    Console.WriteLine($"Number must be between {min} and {max}");
+                    Console.WriteLine($"Number must be between {from} and {to} !");
+                    Isvalid = false;
                 }
-                else isValid = true;
-
-            } while (!isValid);
+            }
+            while (!Isvalid);
 
             return number;
-
         }
 
-        public static void OutputHeading(string title)
+        public static void OutputHeading(string heading)
         {
             Console.WriteLine("\n--------------------------------------------");
-            Console.WriteLine("            {BMI Calculator}         ");
+            Console.WriteLine("              {heading}         ");
             Console.WriteLine("           By Brian Ruszkowski              ");
             Console.WriteLine("--------------------------------------------\n");
         }

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using ConsoleAppProject.Helpers;
+
 
 namespace ConsoleAppProject.App03
 {
@@ -39,9 +37,9 @@ namespace ConsoleAppProject.App03
         {
             Students = new string[]
             {
-                "Daniel", "Dylan", "Eric",
-                "Georgia", "Hasan", "Hamza",
-                "Jack", "Liam", "Shan",
+                "Brian", "Blend", "Eliott",
+                "Tom", "Ash", "Lian",
+                "Jack", "Liam", "Jess",
                 "Shamial"
             };
 
@@ -49,61 +47,184 @@ namespace ConsoleAppProject.App03
             Marks = new int[Students.Length];
         }
 
-        private void DisplayMenu()
+        public void OutputMenu()
         {
-            throw new NotImplementedException();
+            string[] choices = new string[]
+            {
+                "Input Marks", "Output Marks", "Output Stats", "Output Grade Profile", "Quit", "giveMarksTesting()", "giveMarksTo()"
+            };
+
+            bool finished = false;
+            do
+            {
+                Console.WriteLine();
+                switch (ConsoleHelper.SelectChoice(choices))
+                {
+                    case 1:
+                        InputMarks();
+                        break;
+
+                    case 2:
+                        OutputMarks();
+                        break;
+
+                    case 3:
+                        OutputStats();
+                        break;
+
+                    case 4:
+                        CalculateGradeProfile();
+                        OutputGradeProfile();
+                        break;
+
+                    case 5:
+                        Console.WriteLine(@"Now quitting Student Grades");
+
+                        finished = true;
+                        break;
+
+                    case 6:
+                        giveMarksTesting();
+                        break;
+
+                    case 7:
+                        giveMarksTo(Console.ReadLine(), (int)ConsoleHelper.InputNumber());
+                        break;
+                }
+            } while (!finished);
         }
 
-        private void InputMarks()
+
+        public void InputMarks()
         {
-            throw new NotImplementedException();
+            int i = 0;
+
+            foreach (string student in Students)
+            {
+                Console.WriteLine($"Enter the marks for {student} >");
+                Marks[i] += ConsoleHelper.InputNumberWithin(LowestMark, HighestMark);
+                i++;
+            }
         }
 
-        private void OutputMarks()
+        public int giveMarksTo(string name, int mark)
         {
-            throw new NotImplementedException();
+            int i = 0;
+
+            foreach (string student in Students)
+            {
+                if (!ConsoleHelper.InRange(mark, LowestMark, HighestMark))
+                {
+                    return -1;
+                }
+
+                string correctName = student;
+                if (correctName == name)
+                {
+                    Marks[i] += mark;
+                    break;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+
+            return Marks[i];
         }
 
-        public Grades ConvertToGrade(int Mark)
+        public void OutputMarks()
         {
-            if (Mark >= 0 && Mark < LowestGradeD)
+            Console.WriteLine("Output Marks :");
+            Console.WriteLine();
+            int i = 0;
+
+            foreach (string student in Students)
             {
-                return Grades.F;
+                Console.WriteLine($" Marks for {student} :| {Marks[i]} |");
+                i++;
             }
-            else if (Mark >= LowestGradeD && Mark < LowestGradeC)
-            {
-                return Grades.D;
-            }
-            else if (Mark >= LowestGradeC && Mark < LowestGradeB)
-            {
-                return Grades.C;
-            }
-            else if (Mark >= LowestGradeB && Mark < LowestGradeA)
-            {
-                return Grades.B;
-            }
-            else if (Mark >= LowestGradeA && Mark <= HighestMark)
+        }
+
+        public Grades ConvertToGrade(int mark)
+        {
+            if (ConsoleHelper.InRange(mark, LowestGradeA, HighestMark) || mark > 100)
             {
                 return Grades.A;
             }
-            return Grades.F;
+            else if (ConsoleHelper.InRange(mark, LowestGradeB, LowestGradeA - 1))
+            {
+                return Grades.B;
+            }
+            else if (ConsoleHelper.InRange(mark, LowestGradeC, LowestGradeB - 1))
+            {
+                return Grades.C;
+            }
+            else if (ConsoleHelper.InRange(mark, LowestGradeD, LowestGradeC - 1))
+            {
+                return Grades.D;
+            }
+            else
+            {
+                return Grades.F;
+            };
         }
 
         public  void CalculateStats()
         {
             double total = 0;
 
-            Minimum = HighestMark;
-            Maximum = 0;
-
             foreach(int mark in Marks)
             {
                 total = total = mark;
-                if (mark > Maximum) Maximum = mark;
-                if (mark < Minimum) Minimum = mark;
             }
 
             Mean = total / Marks.Length;
+
+            Maximum = 0;
+            foreach (int mark in Marks)
+            {
+                if (mark > Maximum)
+                {
+                    Maximum = mark;
+                }
+            }
+
+            Minimum = 100;
+            foreach (int mark in Marks)
+            {
+                if (mark < Minimum)
+                {
+                    Minimum = mark;
+                }
+            }
+        }
+
+        public void OutputStats()
+        {
+            int i = 0;
+
+            foreach (string student in Students)
+            {
+                CalculateGradeProfile();
+                CalculateStats();
+                string gradeClass = ConsoleHelper.GetDescription(ConvertToGrade(Marks));
+
+                Console.WriteLine($" |{student} :{gradeClass} "));
+                Console.WriteLine(" |_____________");
+                Console.WriteLine($" |Grade : { ConvertToGrade(Marks[i])} |");
+                Console.WriteLine($" |Marks : {Marks[i]} | ");
+                Console.WriteLine($"");
+                Console.WriteLine($"");
+                i++;
+            }
+            Console.WriteLine(" _______________________");
+            Console.WriteLine(" |Stats for all students|");
+            Console.WriteLine(" |______________________|");
+
+            Console.WriteLine($" |Maximum : {Maximum}  ");
+            Console.WriteLine($" |Minimum : {Minimum}  ");
+            Console.WriteLine($" |Average : {Mean}     ");
         }
 
         public void CalculateGradeProfile()
@@ -120,27 +241,32 @@ namespace ConsoleAppProject.App03
             }
         }
 
-        public void TestGradesEnumeration()
+        public void OutputGradeProfile()
         {
-            Grades grade = Grades.C;
+            Grades grade = Grades.F;
+            Console.WriteLine();
 
-            Console.WriteLine($"Grade = {grade}");
-            Console.WriteLine($"Grade No = {(int)grade}");
-
-            Console.WriteLine("\nDiscovered by Andrei!\n");
-            var gradeName = grade.GetAttribute<DisplayAttribute>().Name;
-            Console.WriteLine($"Grade Name = {gradeName}");
-
-            var gradeDescription = grade.GetAttribute<DescriptionAttribute>().Description;
-            Console.WriteLine($"Grade Description = {gradeDescription}");
-
-            string testDescription = EnumHelper<Grades>.GetDescription(grade);
-            string testName = EnumHelper<Grades>.GetName(grade);
+            foreach (int count in GradeProfile)
+            {
+                int percentage = count * 100 / Marks.Length;
+                Console.WriteLine($"Grade {grade} {percentage}% Count {count}");
+                grade++;
+            }
 
             Console.WriteLine();
-            Console.WriteLine("Discovered by Derek Using EnumHelper\n");
-            Console.WriteLine($"Name = {testName}");
-            Console.WriteLine($"Description = {testDescription}");
+
+        }
+
+        public void giveMarksTesting()
+        {
+            int i = 0;
+            Random r = new Random();
+            foreach (string student in Students)
+            {
+                Marks[i] += r.Next(0, 100);
+                Console.WriteLine($"{student} marks : {Marks[i]}");
+                i++;
+            }
         }
     }
 }
