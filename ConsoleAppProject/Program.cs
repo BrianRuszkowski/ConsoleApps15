@@ -20,6 +20,8 @@ namespace ConsoleAppProject
 
         private static BMI calculator = new BMI();
 
+        private static StudentGrades grades = new StudentGrades();
+
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -27,7 +29,7 @@ namespace ConsoleAppProject
             Console.WriteLine("-----------------------------------------------");
             Console.WriteLine("BNU CO453 Applications Programming 2020-2021!");
             Console.WriteLine("           By Brian Ruszkowski");
-            Console.WriteLine("-----------------------------------------------");
+            Console.WriteLine("-----------------------------------------------"); 
             Console.WriteLine();
 
             Console.WriteLine("1. Distance Converter");
@@ -47,7 +49,7 @@ namespace ConsoleAppProject
             }
             else if(choice == "3")
             {
-                throw new NotImplementedException();
+                grades.StudentGrades();
             }
         }
     }

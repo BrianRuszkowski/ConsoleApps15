@@ -18,13 +18,60 @@ namespace ConsoleAppProject
                 Console.WriteLine($"|{choiceNo}. {choice}");
             }
 
-            choiceNo = InputNumberWithin(choiceNo-choiceNo+1, choices.Length);
+            choiceNo = InputNumberWithin(choiceNo - choiceNo + 1, choices.Length);
 
             return choiceNo;
         }
 
+        public static double InputNumber(string prompt, double min, double max)
+        {
+            bool isValid;
+            double number;
+
+            do
+            {
+                number = InputNumber(prompt);
+
+                if (number < min || number > max)
+                {
+                    isValid = false;
+                    Console.WriteLine($"Number must be between {min} and {max}");
+                }
+                else isValid = true;
+
+            } while (!isValid);
+
+            return number;
+
+        }
 
         public static double InputNumber()
+        {
+            double number = 0;
+            bool Isvalid = false;
+
+            do
+            {
+                Console.Write(">");
+                string value = Console.ReadLine();
+
+                try
+                {
+                    number = Convert.ToDouble(value);
+                    Isvalid = true;
+                }
+                catch (Exception)
+                {
+                    Isvalid = false;
+                    Console.WriteLine("Number is INVALID!!!");
+                }
+            }
+            while (!Isvalid);
+            return number;
+
+        }
+
+        public static double InputNumber(string prompt)
         {
             double number = 0;
             bool Isvalid = false;

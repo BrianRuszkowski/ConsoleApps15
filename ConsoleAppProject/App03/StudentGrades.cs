@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace ConsoleAppProject.App03
 {
     /// <summary>
@@ -68,26 +67,23 @@ namespace ConsoleAppProject.App03
                         OutputMarks();
                         break;
 
-                    case 3:
-                        OutputStats();
-                        break;
 
-                    case 4:
+                    case 3:
                         CalculateGradeProfile();
                         OutputGradeProfile();
                         break;
 
-                    case 5:
+                    case 4:
                         Console.WriteLine(@"Now quitting Student Grades");
 
                         finished = true;
                         break;
 
-                    case 6:
+                    case 5:
                         giveMarksTesting();
                         break;
 
-                    case 7:
+                    case 6:
                         giveMarksTo(Console.ReadLine(), (int)ConsoleHelper.InputNumber());
                         break;
                 }
@@ -170,11 +166,11 @@ namespace ConsoleAppProject.App03
             };
         }
 
-        public  void CalculateStats()
+        public void CalculateStats()
         {
             double total = 0;
 
-            foreach(int mark in Marks)
+            foreach (int mark in Marks)
             {
                 total = total = mark;
             }
@@ -198,33 +194,6 @@ namespace ConsoleAppProject.App03
                     Minimum = mark;
                 }
             }
-        }
-
-        public void OutputStats()
-        {
-            int i = 0;
-
-            foreach (string student in Students)
-            {
-                CalculateGradeProfile();
-                CalculateStats();
-                string gradeClass = ConsoleHelper.GetDescription(ConvertToGrade(Marks));
-
-                Console.WriteLine($" |{student} :{gradeClass} "));
-                Console.WriteLine(" |_____________");
-                Console.WriteLine($" |Grade : { ConvertToGrade(Marks[i])} |");
-                Console.WriteLine($" |Marks : {Marks[i]} | ");
-                Console.WriteLine($"");
-                Console.WriteLine($"");
-                i++;
-            }
-            Console.WriteLine(" _______________________");
-            Console.WriteLine(" |Stats for all students|");
-            Console.WriteLine(" |______________________|");
-
-            Console.WriteLine($" |Maximum : {Maximum}  ");
-            Console.WriteLine($" |Minimum : {Minimum}  ");
-            Console.WriteLine($" |Average : {Mean}     ");
         }
 
         public void CalculateGradeProfile()
