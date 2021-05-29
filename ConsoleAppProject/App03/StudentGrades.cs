@@ -50,7 +50,7 @@ namespace ConsoleAppProject.App03
         {
             string[] choices = new string[]
             {
-                "Input Marks", "Output Marks", "Output Stats", "Output Grade Profile", "Quit", "giveMarksTesting()", "giveMarksTo()"
+                "Input Marks", "Output Marks", "Output Grade Profile", "Quit", "giveMarksTesting()", "giveMarksTo()"
             };
 
             bool finished = false;

@@ -49,7 +49,7 @@ namespace ConsoleAppProject
             }
             else if(choice == "3")
             {
-                grades.StudentGrades();
+                grades.OutputMenu();
             }
         }
     }
