@@ -3,8 +3,8 @@
 namespace ConsoleAppProject.App03
 {
     /// <summary>
-    /// At the moment this class just tests the
-    /// Grades enumeration names and descriptions
+    /// This method contains all the information for the program
+    /// such how many marks you need for a certain grade
     /// </summary>
     public class StudentGrades
     {
@@ -30,8 +30,10 @@ namespace ConsoleAppProject.App03
 
         public int Maximum { get; set; }
 
-        // Attributes
-
+        /// <summary>
+        /// This method is for the list of student names whithin the
+        /// application
+        /// </summary>
         public StudentGrades()
         {
             Students = new string[]
@@ -46,6 +48,11 @@ namespace ConsoleAppProject.App03
             Marks = new int[Students.Length];
         }
 
+        /// <summary>
+        /// This method outputs the choices for the user and allows them 
+        /// to choose what they want to do after a number has been entered
+        /// it will take them to that choice
+        /// </summary>
         public void OutputMenu()
         {
             string[] choices = new string[]
@@ -90,7 +97,9 @@ namespace ConsoleAppProject.App03
             } while (!finished);
         }
 
-
+        /// <summary>
+        /// This method allows the user to input marks for all students
+        /// </summary>
         public void InputMarks()
         {
             int i = 0;
@@ -103,6 +112,14 @@ namespace ConsoleAppProject.App03
             }
         }
 
+        /// <summary>
+        /// This method allows the user to input marks for a specific student
+        /// and checks if the name is correct for the student they wish to add
+        /// marks for
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="mark"></param>
+        /// <returns></returns>
         public int giveMarksTo(string name, int mark)
         {
             int i = 0;
@@ -129,6 +146,9 @@ namespace ConsoleAppProject.App03
             return Marks[i];
         }
 
+        /// <summary>
+        /// This method displays all marks that each student has
+        /// </summary>
         public void OutputMarks()
         {
             Console.WriteLine("Output Marks :");
@@ -142,6 +162,12 @@ namespace ConsoleAppProject.App03
             }
         }
 
+        /// <summary>
+        /// This method converts the amount of marks a student has into
+        /// a specific grade that corresponds with their amount of marks
+        /// </summary>
+        /// <param name="mark"></param>
+        /// <returns></returns>
         public Grades ConvertToGrade(int mark)
         {
             if (ConsoleHelper.InRange(mark, LowestGradeA, HighestMark) || mark > 100)
@@ -166,6 +192,9 @@ namespace ConsoleAppProject.App03
             };
         }
 
+        /// <summary>
+        /// This method calculates the students stats and marks
+        /// </summary>
         public void CalculateStats()
         {
             double total = 0;
@@ -196,6 +225,9 @@ namespace ConsoleAppProject.App03
             }
         }
 
+        /// <summary>
+        /// This method calculates mark to grade
+        /// </summary>
         public void CalculateGradeProfile()
         {
             for (int i = 0; i < GradeProfile.Length; i++)
@@ -210,6 +242,9 @@ namespace ConsoleAppProject.App03
             }
         }
 
+        /// <summary>
+        /// This method displays grade profile for the student
+        /// </summary>
         public void OutputGradeProfile()
         {
             Grades grade = Grades.F;
@@ -226,6 +261,9 @@ namespace ConsoleAppProject.App03
 
         }
 
+        /// <summary>
+        /// This method gives the user the ability to add marks for testing
+        /// </summary>
         public void giveMarksTesting()
         {
             int i = 0;

@@ -6,6 +6,12 @@ namespace ConsoleAppProject
 {
     public static class ConsoleHelper
     {
+        /// <summary>
+        /// This method makes sure that the user doesn't input the wrong value
+        /// and repeats the process until a correct value is given
+        /// </summary>
+        /// <param name="choices"></param>
+        /// <returns></returns>
         public static int SelectChoice(string[] choices)
         {
             int choiceNo = 0;
@@ -23,6 +29,13 @@ namespace ConsoleAppProject
             return choiceNo;
         }
 
+        /// <summary>
+        /// This method checks that the number is within limit 
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         public static double InputNumber(string prompt, double min, double max)
         {
             bool isValid;
@@ -45,6 +58,11 @@ namespace ConsoleAppProject
 
         }
 
+        /// <summary>
+        /// This method checks the input number and if number
+        /// is false the method will ask for a different number
+        /// </summary>
+        /// <returns></returns>
         public static double InputNumber()
         {
             double number = 0;
@@ -70,7 +88,13 @@ namespace ConsoleAppProject
             return number;
 
         }
-
+        
+        /// <summary>
+        /// This method checks the input number and if number
+        /// is false the method will ask for a different number
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <returns></returns>
         public static double InputNumber(string prompt)
         {
             double number = 0;
@@ -97,6 +121,13 @@ namespace ConsoleAppProject
 
         }
 
+        /// <summary>
+        /// This method checks the value of the number
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
         public static bool InRange(double value, double from, double to)
         {
             if (value >= from && value <= to)
@@ -109,6 +140,13 @@ namespace ConsoleAppProject
             }
         }
 
+        /// <summary>
+        /// This method checks the input number and keeps it within the value
+        /// any number that is greater than will not count
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
         public static int InputNumberWithin(int from, int to)
         {
             int number;
@@ -132,6 +170,10 @@ namespace ConsoleAppProject
             return number;
         }
 
+        /// <summary>
+        /// This method displays the student name and the name of the application
+        /// </summary>
+        /// <param name="heading"></param>
         public static void OutputHeading(string heading)
         {
             Console.WriteLine("\n--------------------------------------------");
