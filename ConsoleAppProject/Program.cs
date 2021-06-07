@@ -51,6 +51,10 @@ namespace ConsoleAppProject
             {
                 grades.OutputMenu();
             }
+            else if(choice == "4")
+            {
+                network.posts();
+            }
         }
     }
 }
