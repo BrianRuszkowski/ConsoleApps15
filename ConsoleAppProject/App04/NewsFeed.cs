@@ -62,8 +62,19 @@ namespace ConsoleAppProject.App04
 
         public void RemovePost(int id)
         {
-            posts.FindIndex();
-            posts.Remove();
+            MessagePost post = FindPost(id);
+            posts.Remove(post);
+        }
+
+        public Post FindPost()
+        {
+            foreach (MessagePost post in posts) ;
+            {
+                if(id == post.PostId)
+                {
+                    return post;
+                }
+            }return null;
         }
 
         ///<summary>

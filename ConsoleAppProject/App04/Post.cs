@@ -9,7 +9,7 @@ namespace ConsoleAppProject.App04
 
         private readonly List<String> comments;
 
-        private int PostId;
+        public int PostId;
 
         // username of the post's author
         public String Username { get; }
