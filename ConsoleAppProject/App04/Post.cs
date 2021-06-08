@@ -63,6 +63,31 @@ namespace ConsoleAppProject.App04
             comments.Add(text);
         }
 
+        public void Display()
+        {
+            Console.WriteLine();
+            Console.WriteLine($" Author: {Username}");
+            Console.WriteLine($" Time Elpased: {FormatElapsedTime(Timestamp)}");
+            Console.WriteLine();
+
+            if(likes > 0)
+            {
+                Console.WriteLine($" Likes: {likes} people like this.");
+            }
+            else
+            {
+                Console.WriteLine();
+            }
+            if (comments.Count == 0)
+            {
+                Console.WriteLine(" No Comments.");
+            }
+            else
+            {
+                Console.WriteLine($" {comments.Count} comment(s). Click here to view.");
+            }
+        }
+
 
         /// <summary>
         /// this method shows the time of the post posted
