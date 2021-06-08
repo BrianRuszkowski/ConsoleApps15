@@ -30,8 +30,7 @@ namespace ConsoleAppProject.App04
                     case 1: PostMessage(); break;
                     case 2: PostImage(); break;
                     case 3: DisplayAll(); break;
-                    case 4:
-                    case 5: wantToQuit = true; break;
+                    case 4: wantToQuit = true; break;
                 }
             } while (!wantToQuit);
         }

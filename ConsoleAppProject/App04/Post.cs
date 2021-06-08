@@ -51,5 +51,18 @@ namespace ConsoleAppProject.App04
         {
             DateTime current = DateTime.Now;
             TimeSpan timePast = current - time;
+
+            long seconds = (long)timePast.TotalSeconds;
+            long minutes = seconds / 60;
+
+            if (minutes > 0)
+            {
+                return minutes + " minutes ago";
+            }
+            else
+            {
+                return seconds + " seconds ago";
+            }
         }
+    }
 }
