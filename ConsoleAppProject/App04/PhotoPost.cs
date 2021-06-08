@@ -18,20 +18,14 @@ namespace ConsoleAppProject.App04
 
         // the name of the image file
         public String Filename { get; set; }
-        
+
         // a one line image caption
         public String Caption { get; set; }
 
-        public PhotoPost(String author, String filename, String )
+        public PhotoPost(String author, String filename, String caption):base(author)
         {
             this.Filename = filename;
             this.Caption = caption;
         }
-
-        public override void Display()
-        {
-            Console.WriteLine("-----------------------------");
-            Console.WriteLine($"\t\tFilename: [{Filename}]");
-            Console.WriteLine($"\t\tCaption: [{Caption}]");
-            base.Display();
-        }
+    }
+}
