@@ -21,7 +21,7 @@ namespace ConsoleAppProject.App04
             string[] choices = new string[]
             {
                 "Post Message", "Post Image",
-                "DisplayMenu All Posts", "Quit"
+                "DisplayMenu All Posts", "DeleteMessage", "Quit"
             };
 
             bool wantToQuit = false;

@@ -22,7 +22,7 @@ namespace ConsoleAppProject.App04
         // a one line image caption
         public String Caption { get; set; }
 
-        public PhotoPost(String author, String filename, String caption):base(author)
+        public PhotoPost(String author, String filename, String caption, int id):base(author, id)
         {
             this.Filename = filename;
             this.Caption = caption;
