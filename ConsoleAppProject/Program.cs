@@ -55,8 +55,8 @@ namespace ConsoleAppProject
             }
             else if(choice == "4")
             {
-                
-                newsFeed.
+
+                App04.NetwortApp();
             }
         }
     }
