@@ -22,6 +22,8 @@ namespace ConsoleAppProject
 
         private static StudentGrades grades = new StudentGrades();
 
+        private static NetworkApp app04 = new NewtworkApp();
+
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -53,7 +55,8 @@ namespace ConsoleAppProject
             }
             else if(choice == "4")
             {
-                network.posts();
+                
+                newsFeed.
             }
         }
     }
