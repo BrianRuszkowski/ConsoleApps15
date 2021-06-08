@@ -25,7 +25,7 @@ namespace ConsoleAppProject.App04
         private readonly List<Post> posts;
 
         ///<summary>
-        /// Construct an empty news feed.
+        /// The news feed posts the authors message and photo to their feed
         ///</summary>
         public NewsFeed()
         {
@@ -60,12 +60,21 @@ namespace ConsoleAppProject.App04
             posts.Add(photo);
         }
 
+        /// <summary>
+        /// Allows the the user to remove a post after an id of the
+        /// post has been entered the post will be found and removed
+        /// </summary>
+        /// <param name="id"></param>
         public void RemovePost(int id)
         {
             MessagePost post = FindPost(id);
             posts.Remove(post);
         }
 
+        /// <summary>
+        /// This method finds a specified user post 
+        /// </summary>
+        /// <returns></returns>
         public Post FindPost()
         {
             foreach (MessagePost post in posts) ;

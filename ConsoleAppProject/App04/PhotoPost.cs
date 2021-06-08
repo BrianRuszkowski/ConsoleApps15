@@ -22,6 +22,14 @@ namespace ConsoleAppProject.App04
         // a one line image caption
         public String Caption { get; set; }
 
+
+        /// <summary>
+        /// this method shows the filename and caption of the post
+        /// </summary>
+        /// <param name="author"></param>
+        /// <param name="filename"></param>
+        /// <param name="caption"></param>
+        /// <param name="id"></param>
         public PhotoPost(String author, String filename, String caption, int id):base(author, id)
         {
             this.Filename = filename;

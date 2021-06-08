@@ -18,6 +18,11 @@ namespace ConsoleAppProject.App04
 
         public static int instances = 0;
 
+        /// <summary>
+        /// this method shows the user's post amount of likes comments and the
+        /// time it has been uploaded
+        /// </summary>
+        /// <param name="author"></param>
         public Post(string author)
         {
             instances++;
@@ -29,11 +34,18 @@ namespace ConsoleAppProject.App04
             comments = new List<string>();
         }
 
+        /// <summary>
+        /// This method allows the user to like a post
+        /// </summary>
         public void Like()
         {
             likes++;
         }
 
+        /// <summary>
+        /// This method allows the user to unlike the photo they previously
+        /// liked
+        /// </summary>
         public void Unlike()
         {
             if (likes > 0)
@@ -42,11 +54,21 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// <summary>
+        /// This method allows the user to add a comment
+        /// </summary>
+        /// <param name="text"></param>
         public void AddComment(String text)
         {
             comments.Add(text);
         }
 
+
+        /// <summary>
+        /// this method shows the time of the post posted
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
         private String FormatElapsedTime(DateTime time)
         {
             DateTime current = DateTime.Now;

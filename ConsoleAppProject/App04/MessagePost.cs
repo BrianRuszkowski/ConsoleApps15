@@ -21,6 +21,9 @@ namespace ConsoleAppProject.App04
             Message = text;
         }
 
+        /// <summary>
+        /// this method displays the message of the user
+        /// </summary>
         public override void Display()
         {
             Console.WriteLine("-----------------------------");
