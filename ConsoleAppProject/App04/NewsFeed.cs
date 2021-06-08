@@ -53,6 +53,12 @@ namespace ConsoleAppProject.App04
             photos.Add(photo);
         }
 
+        public void RemovePost(int id)
+        {
+            posts.FindIndex();
+            posts.Remove();
+        }
+
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
         /// terminal. (To do: replace this later with display in web browser.)

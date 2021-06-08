@@ -16,32 +16,40 @@ namespace ConsoleAppProject.App04
 
         public DateTime Timestamp { get; }
 
+        public static int instances = 0;
+
         public Post(string author)
         {
+            instances++;
+            PostId = instances;
             this.Username = author;
             Timestamp = DateTime.Now;
 
             likes = 0;
-            comments = new List<String>();
+            comments = new List<string>();
         }
 
-        ///<summary>
-        /// Record one more 'Like' indication from a user
-        ///</summary>
         public void Like()
         {
             likes++;
         }
 
-        ///<summary>
-        /// Record that a user has removed their 'like'. 
-        ///</summary>
         public void Unlike()
         {
             if (likes > 0)
             {
-
+                likes--;
             }
         }
-    }
+
+        public void AddComment(String text)
+        {
+            comments.Add(text);
+        }
+
+        private String FormatElapsedTime(DateTime time)
+        {
+            DateTime current = DateTime.Now;
+            TimeSpan timePast = current - time;
+        }
 }

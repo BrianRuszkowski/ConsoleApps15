@@ -54,9 +54,15 @@ namespace ConsoleAppProject.App04
         private void PostMessage()
         {
             Console.WriteLine("Enter your message");
+            PostCount++;
             string message = Console.ReadLine();
-            MessagePost post = new MessagePost(news.GetAuthor(), message);
+            MessagePost post = new MessagePost(news.GetAuthor(), message, PostCount);
             news.AddMessagePost(post);
+        }
+        
+        private void DeleteMessage()
+        {
+            news.RemovePost()
         }
     }
 }
